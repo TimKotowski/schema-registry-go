@@ -33,3 +33,4 @@ jobs:
           commit-message: Update report
           branch: example-patches
           title: '[Example] Update report'
+          base: main
