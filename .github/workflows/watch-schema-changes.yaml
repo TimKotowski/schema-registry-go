@@ -32,3 +32,12 @@ jobs:
           title: '[Example] Update report'
           base: main
           sign-commits: true
+          body: |
+            Automated PR to update schema report.
+            Changes made to schema.txt.
+
+      # Debug: Output PR details
+      - name: Debug CPR Output
+        run: |
+          echo "Pull Request Number: ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL: ${{ steps.cpr.outputs.pull-request-url }}"
