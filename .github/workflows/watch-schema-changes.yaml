@@ -22,6 +22,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check for changes
+        run: |
+          git status
+          git diff
+
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v7
