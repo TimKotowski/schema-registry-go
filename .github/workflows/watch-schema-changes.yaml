@@ -16,14 +16,11 @@ jobs:
   update_schema:
     runs-on: ubuntu-latest
     steps:
-#      - name: Checkout
-#        id: checkout
-#        uses: actions/checkout@v4
-#        with:
-#          fetch-depth: 0
-
-      - name: Debug
-        run: echo "wow ${{ secrets.GH_API_TOKEN }}"
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Create Pull Request
         id: cpr
