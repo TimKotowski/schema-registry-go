@@ -24,6 +24,7 @@ const (
 type Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Body          []byte                 `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -63,6 +64,13 @@ func (x *Request) GetName() string {
 		return x.Name
 	}
 	return ""
+}
+
+func (x *Request) GetBody() []byte {
+	if x != nil {
+		return x.Body
+	}
+	return nil
 }
 
 type Response struct {
@@ -113,9 +121,10 @@ var File_stream_http_v1_http_proto protoreflect.FileDescriptor
 
 const file_stream_http_v1_http_proto_rawDesc = "" +
 	"\n" +
-	"\x19stream/http/v1/http.proto\x12\x0estream.http.v1\"\x1d\n" +
+	"\x19stream/http/v1/http.proto\x12\x0estream.http.v1\"1\n" +
 	"\aRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"$\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
+	"\x04body\x18\x02 \x01(\fR\x04body\"$\n" +
 	"\bResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessageB\x96\x01\n" +
 	"\x12com.stream.http.v1B\tHttpProtoP\x01Z\x1bproto/stream/http/v1;httpv1\xa2\x02\x03SHX\xaa\x02\x0eStream.Http.V1\xca\x02\x0eStream\\Http\\V1\xe2\x02\x1aStream\\Http\\V1\\GPBMetadata\xea\x02\x10Stream::Http::V1b\x06proto3"
