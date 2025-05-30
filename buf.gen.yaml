@@ -4,6 +4,8 @@ managed:
   override:
     - file_option: go_package_prefix
       value: proto
+inputs:
+  - module: buf.build/timkotowski/schema-registry
 plugins:
   - remote: buf.build/protocolbuffers/go
     out: .
