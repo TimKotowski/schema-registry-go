@@ -43,3 +43,4 @@ jobs:
       - name: Merge PR
         id: merge
         run: gh pr merge ${{ steps.cpr.outputs.pull-request-number }}  --merge --auto --delete-branch
+        shell: bash
