@@ -27,6 +27,9 @@ jobs:
 
       - name: Generate Buf Schema Changes
         uses: ./ci-scripts/actions/buf_generate
+        with:
+          user: ${{ secrets.BUF_USER }}
+          token: ${{ secrets.BUF_TOKEN }}
 
       - name: Create Pull Request
         id: cpr
