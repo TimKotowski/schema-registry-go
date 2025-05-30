@@ -23,7 +23,7 @@ jobs:
         with:
           repository: TimKotowski/ci-scripts
           path: ci-scripts
-          token: ${{ secrets.GH_API_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Generate Buf Schema Changes
         uses: ./ci-scripts/actions/buf_generate
@@ -34,7 +34,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GH_API_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           commit-message: Push To Master
           branch: auto-pr/${{ github.event.client_payload.id }}
           title: '[Feat:] Generate New Schema Changes'
@@ -42,7 +42,7 @@ jobs:
 
       - name: Merge PR
         id: merge
-        run: gh pr merge ${{ steps.cpr.outputs.pull-request-number }}  --merge --auto --delete-branch
+        run: gh pr merge ${{ steps.cpr.outputs.pull-request-number }} --merge --auto --delete-branch
         shell: bash
         env:
-          GH_TOKEN: ${{ secrets.GH_API_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
