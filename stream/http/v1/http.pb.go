@@ -76,6 +76,7 @@ func (x *Request) GetBody() []byte {
 type Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Id            int64                  `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -117,6 +118,13 @@ func (x *Response) GetMessage() string {
 	return ""
 }
 
+func (x *Response) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 var File_stream_http_v1_http_proto protoreflect.FileDescriptor
 
 const file_stream_http_v1_http_proto_rawDesc = "" +
@@ -124,9 +132,10 @@ const file_stream_http_v1_http_proto_rawDesc = "" +
 	"\x19stream/http/v1/http.proto\x12\x0estream.http.v1\"1\n" +
 	"\aRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
-	"\x04body\x18\x02 \x01(\fR\x04body\"$\n" +
+	"\x04body\x18\x02 \x01(\fR\x04body\"4\n" +
 	"\bResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessageB\x96\x01\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\x12\x0e\n" +
+	"\x02id\x18\x02 \x01(\x03R\x02idB\x96\x01\n" +
 	"\x12com.stream.http.v1B\tHttpProtoP\x01Z\x1bproto/stream/http/v1;httpv1\xa2\x02\x03SHX\xaa\x02\x0eStream.Http.V1\xca\x02\x0eStream\\Http\\V1\xe2\x02\x1aStream\\Http\\V1\\GPBMetadata\xea\x02\x10Stream::Http::V1b\x06proto3"
 
 var (
