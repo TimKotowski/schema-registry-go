@@ -28,7 +28,6 @@ jobs:
       - name: Generate Buf Schema Changes
         uses: ./ci-scripts/actions/buf_generate
         with:
-          user: ${{ secrets.BUF_USER }}
           token: ${{ secrets.BUF_TOKEN }}
 
       - name: Create Pull Request
@@ -37,6 +36,6 @@ jobs:
         with:
           token: ${{ secrets.GH_API_TOKEN }}
           commit-message: Push To Master
-          branch: auto-pr/${{ github.re }}
+          branch: auto-pr/${{ github.event.client_payload.id }}
           title: '[Feat:] Generate New Schema Changes'
           body: 'Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action'
