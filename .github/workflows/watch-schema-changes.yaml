@@ -39,3 +39,7 @@ jobs:
           branch: auto-pr/${{ github.event.client_payload.id }}
           title: '[Feat:] Generate New Schema Changes'
           body: 'Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action'
+
+      - name: Merge PR
+        id: merge
+        run: gh pr mergea ${{ steps.cpr.outputs.pull-request-number }}  --merge --auto --delete-branch
