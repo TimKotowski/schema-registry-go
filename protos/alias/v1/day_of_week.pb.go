@@ -28,18 +28,25 @@ const (
 	// The day of the week is unspecified.
 	DayOfWeek_DAY_OF_WEEK_UNSPECIFIED DayOfWeek = 0
 	// Monday
+	// buf:lint:ignore ENUM_VALUE_PREFIX
 	DayOfWeek_MONDAY DayOfWeek = 1
 	// Tuesday
+	// buf:lint:ignore ENUM_VALUE_PREFIX
 	DayOfWeek_TUESDAY DayOfWeek = 2
 	// Wednesday
+	// buf:lint:ignore ENUM_VALUE_PREFIX
 	DayOfWeek_WEDNESDAY DayOfWeek = 3
 	// Thursday
+	// buf:lint:ignore ENUM_VALUE_PREFIX
 	DayOfWeek_THURSDAY DayOfWeek = 4
 	// Friday
+	// buf:lint:ignore ENUM_VALUE_PREFIX
 	DayOfWeek_FRIDAY DayOfWeek = 5
 	// Saturday
+	// buf:lint:ignore ENUM_VALUE_PREFIX
 	DayOfWeek_SATURDAY DayOfWeek = 6
 	// Sunday
+	// buf:lint:ignore ENUM_VALUE_PREFIX
 	DayOfWeek_SUNDAY DayOfWeek = 7
 )
 
