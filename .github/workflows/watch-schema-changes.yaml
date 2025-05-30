@@ -27,10 +27,6 @@ jobs:
 
       - name: Generate Buf Schema Changes
         uses: ./ci-scripts/actions/buf_generate
-        with:
-          token: ${{ secrets.BSR_TOKEN }}
-          path: "src/proto3"
-          gh_token: ${{ secrets.GH_API_TOKEN }}
 
       - name: Create Pull Request
         id: cpr
