@@ -1,16 +1,12 @@
-name: Watch Registry Schema Changes
+name: Registry Change Watcher
 
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 
 on:
-  pull_request:
-    branches:
-      - main
-#on:
-#  repository_dispatch:
-#    types: [EVENT_SCHEMA_REGISTRY_PULL_NEW_CHANGES]
+  repository_dispatch:
+    types: [EVENT_SCHEMA_REGISTRY_PULL_NEW_CHANGES]
 
 jobs:
   update_schema:
@@ -22,14 +18,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Debug
-        run: echo "wow ${{ secrets.GH_API_TOKEN }}"
+      - name: Checkout Buf
+        uses: actions/checkout@v4
+        with:
+          repository: TimKotowski/ci-scripts
+          path: ci-scripts
+          token: ${{ secrets.GH_API_TOKEN }}
+
+      - name: Generate Buf Schema Changes
+        uses: ./ci-scripts/actions/buf_generate
+        with:
+          token: ${{ secrets.BSR_TOKEN }}
+          path: "src/proto3"
+          gh_token: ${{ secrets.GH_API_TOKEN }}
 
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GH_API_TOKEN }}
-          commit-message: Update report
-          branch: example-patches
-          title: '[Example] Update report'
+          commit-message: Push To Master
+          branch: auto-pr/${{ github.re }}
+          title: '[Feat:] Generate New Schema Changes'
+          body: 'Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action'
