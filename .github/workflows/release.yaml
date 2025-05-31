@@ -42,12 +42,8 @@ jobs:
       - name: Get Release PR Number
         id: get_pr_number
         run: |
-          echo PRINT "${{ steps.release.outputs.pr }}" | jq -r .number
-
-      - name: Debug
-        id: de
-        run: | 
-          echo ${{ steps.get_pr_number.outputs.pr_number }}
+          echo "====== PR NUMBER JSON ======"
+          echo "${{ steps.release.outputs.pr }}" | jq -r .number
 
   merge-release:
     name: Merge Release
