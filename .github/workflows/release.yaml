@@ -32,10 +32,15 @@ jobs:
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
 
-      - name: Release PR
+      - name: Get Release PR Number
         id: get_pr_number
         run: |
-          echo "pr_number=$(echo ${{ steps.release.outputs.pr }} | jq -r '.number')"  >> "$GITHUB_OUTPUT"
+          echo "pr_number=$(echo "${{ steps.release.outputs.pr }}" | jq -r '.number')"  >> "$GITHUB_OUTPUT"
+
+      - name: Debug
+        id: de
+        run: | 
+          echo ${{ steps.get_pr_number.outputs.pr_number }}
 
   merge-release:
     name: Merge Release
