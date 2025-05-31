@@ -59,7 +59,7 @@ jobs:
     steps:
     - name: Merge PR
       id: merge
-      run: gh pr merge ${{ steps.get_pr_number.outputs.pr_number }} --merge --auto --delete-branch
+      run: gh pr merge ${{ needs.release-please.outputs.release_number }} --merge --auto --delete-branch
       shell: bash
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
