@@ -17,8 +17,8 @@ jobs:
     name: Release Please
     runs-on: ubuntu-latest
     outputs:
-      release: ${{ steps.release.outputs.release_created }}
-      changes: ${{ steps.identify_changes.outputs.src_count }}
+      release_created: ${{ steps.release.outputs.release_created }}
+      release_number: ${{ steps.get_pr_number.outputs.pr_number }}
 
     steps:
       - name: Release
@@ -31,3 +31,22 @@ jobs:
           version-file: version.txt
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
+
+      - name: Release PR
+        id: get_pr_number
+        run: |
+          echo "pr_number=${{ steps.release.outputs.pr }} | jq -r '.number'"  >> "$GITHUB_OUTPUT"
+
+  merge-release:
+    name: Merge Release
+    runs-on: ubuntu-latest
+    if: ${{ needs.release-please.outputs.release_created }}
+    needs: release-please
+
+    steps:
+    - name: Merge PR
+      id: merge
+      run: gh pr merge ${{ steps.get_pr_number.outputs.pr_number }} --merge --auto --delete-branch
+      shell: bash
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
