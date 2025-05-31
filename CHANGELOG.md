@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.1.4](https://github.com/TimKotowski/schema-registry-go/compare/v0.1.3...v0.1.4) (2025-05-31)
+
+
+### Bug Fixes
+
+* fix:  ([9801d13](https://github.com/TimKotowski/schema-registry-go/commit/9801d13b7f634030d49da63467f8657efbb8599f))
+* ci ([b5dfc75](https://github.com/TimKotowski/schema-registry-go/commit/b5dfc75b70c048375b907370c78bb10c41524bea))
+* ci ([5acd3be](https://github.com/TimKotowski/schema-registry-go/commit/5acd3be5a1e57ea98248e929ca2cc366a0977e0f))
+* ci ([6949302](https://github.com/TimKotowski/schema-registry-go/commit/69493027ad176335ddee28e04b19c4bf3aac62c1))
+* ci ([3dd5cd0](https://github.com/TimKotowski/schema-registry-go/commit/3dd5cd0e6138fd2c5f2aff6da37d3d612eeda724))
+* ci ([12fc6eb](https://github.com/TimKotowski/schema-registry-go/commit/12fc6eb1c83ac88e7940c633ce9c0c0aed5af925))
+* ci ([d4af662](https://github.com/TimKotowski/schema-registry-go/commit/d4af662844b55a236b297493f8ad77b0e6ea26c7))
+* ps ([d0645f2](https://github.com/TimKotowski/schema-registry-go/commit/d0645f285824e7315595dfaffc1b97900e451e87))
+* test ([0ba8e8d](https://github.com/TimKotowski/schema-registry-go/commit/0ba8e8d5a47c1819d8bf564075ebb8a89b08212a))
+* test ([060986c](https://github.com/TimKotowski/schema-registry-go/commit/060986c70f9383125340371e368cabd186cfc6ab))
+* test ([4608c99](https://github.com/TimKotowski/schema-registry-go/commit/4608c99267e66bf52d9bbe2ed1cf5a27e400b8ff))
+
 ## [0.1.3](https://github.com/TimKotowski/schema-registry-go/compare/v0.1.2...v0.1.3) (2025-05-31)
 
 
