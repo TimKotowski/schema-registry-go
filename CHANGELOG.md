@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/TimKotowski/schema-registry-go/compare/v0.1.1...v0.1.2) (2025-05-31)
+
+
+### Bug Fixes
+
+* ci ([f3a2a2f](https://github.com/TimKotowski/schema-registry-go/commit/f3a2a2ffc1f3dbdf8d8d21d401692934c0ebeef8))
+
 ## [0.1.1](https://github.com/TimKotowski/schema-registry-go/compare/v0.1.0...v0.1.1) (2025-05-31)
 
 
