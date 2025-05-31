@@ -42,9 +42,12 @@ jobs:
       - name: Get Release PR Number
         id: get_pr_number
         run: |
-          PR_JSON=$'${{ steps.release.outputs.pr }}' 
+          PR_JSON="${{ steps.release.outputs.pr }}"
+          echo "DEBUG: PR_JSON = $PR_JSON"
+          
           PR_NUMBER=$(echo "$PR_JSON" | jq -r 'fromjson | .number')
-          echo "🎉 Release PR #${PR_NUMBER} was opened
+          echo "🎉 Release PR # $PR_NUMBER was opened"
+          
 
 #  merge-release:
 #    name: Merge Release
