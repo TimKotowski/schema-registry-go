@@ -48,19 +48,18 @@ jobs:
       - name: Debug
         id: debug
         run: |
-          echo "${{steps.get_pr_number.outputs.pr_number}}
+          echo "${{steps.get_pr_number.outputs.pr_number}}"
           
+  merge-release:
+    name: Merge Release
+    runs-on: ubuntu-latest
+    if: ${{ !needs.release-please.outputs.release_created && needs.release-please.outputs.release_number > 0 }}
+    needs: release-please
 
-#  merge-release:
-#    name: Merge Release
-#    runs-on: ubuntu-latest
-#    if: ${{ needs.release-please.outputs.release_number > '0' }}
-#    needs: release-please
-#
-#    steps:
-#    - name: Merge PR
-#      id: merge
-#      run: gh pr merge ${{ steps.get_pr_number.outputs.pr_number }} --merge --auto --delete-branch
-#      shell: bash
-#      env:
-#        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+    - name: Merge PR
+      id: merge
+      run: gh pr merge ${{ steps.get_pr_number.outputs.pr_number }} --merge --auto --delete-branch
+      shell: bash
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
