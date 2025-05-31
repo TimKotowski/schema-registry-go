@@ -35,7 +35,7 @@ jobs:
       - name: Get Release PR Number
         id: get_pr_number
         run: |
-          echo "pr_number=$(echo "${{ steps.release.outputs.pr }}" | jq -r .number)" >> "$GITHUB_OUTPUT"
+          echo PRINT "${{ steps.release.outputs.pr }}" | jq -r .number
 
       - name: Debug
         id: de
