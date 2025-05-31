@@ -36,13 +36,13 @@ jobs:
       - name: Dump raw PR JSON
         run: |
           echo "====== RAW PR JSON BEGIN ======"
-          echo '${{ toJSON(steps.release.outputs.pr) }}'
+          echo '${{ fromJSON(steps.release.outputs.pr.name) }}'
           echo "======= RAW PR JSON END ======="
 
       - name: Get Release PR Number
         id: get_pr_number
         run: |
-          PR_NUMBER="${{ toJSON(steps.release.outputs.pr) }}"
+          PR_NUMBER="${{ fromJSON(steps.release.outputs.pr) }}"
           echo "PR #:" $(echo PR_NUMBER | jq -r '.number')
           
 
