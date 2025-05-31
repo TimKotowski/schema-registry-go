@@ -42,20 +42,20 @@ jobs:
       - name: Get Release PR Number
         id: get_pr_number
         run: |
-          echo "====== PR NUMBER JSON ======"
-          echo "${{ steps.release.outputs.pr }}" | jq -r 'fromjson | .number
-          echo "====== PR NUMBER JSON END ======h
+          PR_JSON="${{ steps.release.outputs.pr }}"
+          PR_NUMBER=$(echo "$PR_JSON" | jq -r 'fromjson | .number')
+          echo "$PR_NUMBER"
 
-  merge-release:
-    name: Merge Release
-    runs-on: ubuntu-latest
-    if: ${{ needs.release-please.outputs.release_number > '0' }}
-    needs: release-please
-
-    steps:
-    - name: Merge PR
-      id: merge
-      run: gh pr merge ${{ steps.get_pr_number.outputs.pr_number }} --merge --auto --delete-branch
-      shell: bash
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+#  merge-release:
+#    name: Merge Release
+#    runs-on: ubuntu-latest
+#    if: ${{ needs.release-please.outputs.release_number > '0' }}
+#    needs: release-please
+#
+#    steps:
+#    - name: Merge PR
+#      id: merge
+#      run: gh pr merge ${{ steps.get_pr_number.outputs.pr_number }} --merge --auto --delete-branch
+#      shell: bash
+#      env:
+#        GH_TOKEN: ${{ secrets.GH_TOKEN }}
