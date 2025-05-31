@@ -40,7 +40,7 @@ jobs:
       - name: Dump raw PR JSON
         run: |
           echo "====== RAW PR JSON BEGIN ======"
-          echo '${{ steps.release.outputs.pr }}'
+          echo '${{ steps.release.outputs }}'
           echo "======= RAW PR JSON END ======="
 
       - name: Debug
