@@ -36,7 +36,7 @@ jobs:
       - name: Dump raw PR JSON
         run: |
           echo "====== RAW PR JSON BEGIN ======"
-          echo '${{ toJSON(steps.release.outputs.pr) }}'
+          echo '${{ steps.release.outputs.pr }}'
           echo "======= RAW PR JSON END ======="
 
       - name: Get Release PR Number
