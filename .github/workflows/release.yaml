@@ -47,6 +47,7 @@ jobs:
           
           PR_NUMBER=$(echo "$PR_JSON" | jq -r 'fromjson | .number')
           echo "🎉 Release PR # $PR_NUMBER was opened"
+          
 
 #  merge-release:
 #    name: Merge Release
