@@ -35,7 +35,7 @@ jobs:
       - name: Get Release PR Number
         id: get_pr_number
         run: |
-          echo "pr_number=$(jq -r '.number' <<< "${{ steps.release.outputs.pr }}")" >> "$GITHUB_OUTPUT"
+          echo "pr_number=$(jq -r .number <<< "${{ steps.release.outputs.pr }}")" >> "$GITHUB_OUTPUT"
 
       - name: Debug
         id: de
@@ -45,7 +45,7 @@ jobs:
   merge-release:
     name: Merge Release
     runs-on: ubuntu-latest
-    if: ${{ needs.release-please.outputs.release_number > 0 }}
+    if: ${{ needs.release-please.outputs.release_number > '0' }}
     needs: release-please
 
     steps:
