@@ -32,16 +32,17 @@ jobs:
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
 
-#      - name: Get Release PR Number
-#        id: get_pr_number
-#        run: |
-#          echo PRINT "${{ steps.release.outputs.pr }}" | jq -r .number
 
       - name: Dump raw PR JSON
         run: |
           echo "====== RAW PR JSON BEGIN ======"
           echo '${{ toJSON(steps.release.outputs) }}'
           echo "======= RAW PR JSON END ======="
+
+      - name: Get Release PR Number
+        id: get_pr_number
+        run: |
+          echo PRINT "${{ steps.release.outputs.pr }}" | jq -r .number
 
       - name: Debug
         id: de
