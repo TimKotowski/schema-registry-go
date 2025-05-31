@@ -43,7 +43,7 @@ jobs:
         id: get_pr_number
         run: |
           echo "====== PR NUMBER JSON ======"
-          echo "${{ steps.release.outputs.pr }}" | jq -r .number
+          echo "${{ steps.release.outputs.pr }}" | jq -r 'fromjson | .number
           echo "====== PR NUMBER JSON END ======h
 
   merge-release:
