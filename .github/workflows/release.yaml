@@ -36,14 +36,19 @@ jobs:
       - name: Dump raw PR JSON
         run: |
           echo "====== RAW PR JSON BEGIN ======"
-          echo '${{ fromJSON(steps.release.outputs.pr.name) }}'
+          echo "${{ fromJSON(steps.release.outputs.pr) }}"
           echo "======= RAW PR JSON END ======="
 
       - name: Get Release PR Number
         id: get_pr_number
         run: |
-          PR_NUMBER="${{ fromJSON(steps.release.outputs.pr) }}"
-          echo "PR #:" $(echo PR_NUMBER | jq -r '.number')
+          PR_NUMBER=${{ fromJSON(steps.release.outputs.pr).number }}
+          echo "pr_number=${PR_NUMBER}" >> $GITHUB_OUTPUT
+      
+      - name: Debug
+        id: debug
+        run: |
+          echo "${{steps.get_pr_number.outputs.pr_number}}
           
 
 #  merge-release:
