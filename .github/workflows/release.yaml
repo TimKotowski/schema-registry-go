@@ -57,6 +57,11 @@ jobs:
     needs: release-please
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
     - name: Merge PR
       id: merge
       run: gh pr merge ${{ needs.release-please.outputs.release_number }} --merge --auto --delete-branch
