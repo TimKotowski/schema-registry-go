@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/TimKotowski/schema-registry-go/compare/v0.1.5...v0.1.6) (2025-09-02)
+
+
+### Bug Fixes
+
+* add go mod to allow proper version ([b022306](https://github.com/TimKotowski/schema-registry-go/commit/b02230647d15fc884a6845d727b210637259fc9d))
+
 ## [0.1.5](https://github.com/TimKotowski/schema-registry-go/compare/v0.1.4...v0.1.5) (2025-05-31)
 
 
